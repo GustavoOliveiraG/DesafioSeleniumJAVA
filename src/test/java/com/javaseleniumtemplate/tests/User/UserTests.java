@@ -51,7 +51,7 @@ public class UserTests extends TestBase {
         System.out.println( DriverFactory.INSTANCE.getPageSource());
         */
     }
-    //Teste acima, com gravaçao de video
+    //Teste acima, com gravaçao de video e Print na INSTACIA
 
     @Test
     public void naoCadastrarUsuarioNomeIgual() {
@@ -76,6 +76,57 @@ public class UserTests extends TestBase {
         createAccountPage.clicarCadastrar();
         Assert.assertEquals(createAccountPage.validarUsuarioCadastradoNomeIgual(),"Este nome de usuário já está sendo usado. Por favor, volte e selecione um outro.");
     }
+
+    @Test
+    public void cadastrarUsuarioSemNome() throws Exception {
+        //Objects instances
+        userFlows = new UserFlows();
+        createAccountPage = new CreateAccountPage();
+
+        //Parameteres
+        String name = "";
+        String nivelAcesso = "visualizador";
+
+        //Test
+        userFlows.cadastrarUsuarioNovo(name, nivelAcesso);
+
+        Assert.assertEquals(createAccountPage.validarUsuarioSemNome(),"APPLICATION ERROR #805");
+
+    }
+
+    @Test
+    public void cadastrarUsuarioNumeroNome() throws Exception {
+        //Objects instances
+        userFlows = new UserFlows();
+        createAccountPage = new CreateAccountPage();
+
+        //Parameteres
+        String name = "123456789";
+        String nivelAcesso = "visualizador";
+
+        //Test
+        userFlows.cadastrarUsuarioNovo(name, nivelAcesso);
+
+        Assert.assertEquals(createAccountPage.validarUsuarioCadastradoSucesso(),"Usuário "+name+" criado com um nível de acesso de "+nivelAcesso+"");
+
+    }
+
+    @Test
+    public void cadastrarUsuarioCaractereEspecialNome() throws Exception {
+        //Objects instances
+        userFlows = new UserFlows();
+        createAccountPage = new CreateAccountPage();
+
+        //Parameteres
+        String name = "!@#$%&*";
+        String nivelAcesso = "visualizador";
+
+        //Test
+        userFlows.cadastrarUsuarioNovo(name, nivelAcesso);
+
+        Assert.assertEquals(createAccountPage.validarUsuarioSemNome(),"APPLICATION ERROR #805");
+    }
+
 
     @Test(dataProvider = "dataAddUserCSVProvider", dataProviderClass = ReadingCSVUtils.class)
     public void cadastrarUsuariosNovosDDTCSV(String[] userData) {
@@ -117,6 +168,7 @@ public class UserTests extends TestBase {
         }
 
     }
+
 
 
 
@@ -277,6 +329,30 @@ public class UserTests extends TestBase {
 
     }
 
+    @Test
+    public void editarNomeUsuarioVazio() {
+        //Objects instances
+        loginFlows = new LoginFlows();
+        userFlows = new UserFlows();
+        myAccountPage = new MyAccountPage();
+        editAccountPage = new EditAccountPage();
+
+        //Parameteres
+        String nameeditado = "";
+
+        //Test
+        userFlows.acessarCadastrodeUsuario();
+        editAccountPage.clicarGerenciarUsuario();
+        editAccountPage.clicarUsuarioNivelSelecionado();
+        editAccountPage.editarNomeusuario(nameeditado);
+        editAccountPage.clicarAtualizarUsuario();
+
+
+        //Assert.assertEquals(createAccountPage.validarUsuarioEditarSemNome(),"APPLICATION ERROR #800");
+
+    }
+
+
 
 
     //Representar Usuario
@@ -301,6 +377,7 @@ public class UserTests extends TestBase {
         Assert.assertEquals(editAccountPage.validarUsuarioRepresentadoSucesso(),nome);
 
     }
+
 
 
 

@@ -20,6 +20,7 @@ public class LoginTests extends TestBase {
         myAccountPage = new MyAccountPage();
 
         //Parameteres
+            //null
 
         //Test
         loginFlows.efetuarLogin("administrator", "root");
@@ -34,9 +35,40 @@ public class LoginTests extends TestBase {
         myAccountPage = new MyAccountPage();
 
         //Parameteres
+        //null
 
         //Test
         loginFlows.efetuarLogin("Usuario", "123456");
+        Assert.assertEquals(loginPage.retornaMsgErro(),"Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos.");
+    }
+
+    @Test
+    public void efetuarUsuarioCorretoSenhaInvalida(){
+        //Objects instances
+        loginPage = new LoginPage();
+        loginFlows = new LoginFlows();
+        myAccountPage = new MyAccountPage();
+
+        //Parameteres
+        //null
+
+        //Test
+        loginFlows.efetuarLogin("administrator", "123456");
+        Assert.assertEquals(loginPage.retornaMsgErro(),"Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos.");
+    }
+
+    @Test
+    public void efetuarUsuarioInvalidoSenhaCorreta(){
+        //Objects instances
+        loginPage = new LoginPage();
+        loginFlows = new LoginFlows();
+        myAccountPage = new MyAccountPage();
+
+        //Parameteres
+        //null
+
+        //Test
+        loginFlows.efetuarLogin("administratores", "root");
         Assert.assertEquals(loginPage.retornaMsgErro(),"Sua conta pode estar desativada ou bloqueada ou o nome de usuário e a senha que você digitou não estão corretos.");
     }
 
@@ -48,6 +80,7 @@ public class LoginTests extends TestBase {
         loginPage = new LoginPage();
 
         //Parameteres
+        //null
 
         //Test
         loginFlows.efetuarLogin("administrator", "root");
@@ -62,6 +95,7 @@ public class LoginTests extends TestBase {
         loginPage = new LoginPage();
 
         //Parameteres
+        //null
 
         //Test
         loginPage.preenhcerUsuarioJS();

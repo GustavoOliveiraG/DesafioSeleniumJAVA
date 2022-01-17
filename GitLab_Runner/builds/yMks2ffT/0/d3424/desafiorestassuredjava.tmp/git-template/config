@@ -1,0 +1,4 @@
+[fetch]
+	recurseSubmodules = false
+[http "https://gitlab.com"]
+	sslCAInfo = C:\\GitLab_Runner\\builds\\yMks2ffT\\0\\d3424\\desafiorestassuredjava.tmp\\CI_SERVER_TLS_CA_FILE

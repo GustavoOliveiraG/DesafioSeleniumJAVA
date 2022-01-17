@@ -16,8 +16,9 @@ public class CreateAccountPage extends PageBase {
 
         //ValidarUsuarios
     By validarUsuarioSucesso = By.xpath("//p[text()=' criado com um nível de acesso de ']");
-    By erroCadastrousuario = By.xpath("//p[text()='Este nome de usuário já está sendo usado.  Por favor, volte e selecione um outro.']");
-
+    By validarNomeIgual = By.xpath("//p[text()='Este nome de usuário já está sendo usado.  Por favor, volte e selecione um outro.']");
+    By validarUsuarioSemNome = By.xpath("//p[text()='APPLICATION ERROR #805']");
+    By validarUsuarioEditarSemNome = By.xpath("//p[text()='APPLICATION ERROR #800']");
 
 
 
@@ -36,7 +37,9 @@ public class CreateAccountPage extends PageBase {
 
         //Validar usuarios
     public String validarUsuarioCadastradoSucesso(){ return getText(validarUsuarioSucesso); }
-    public String validarUsuarioCadastradoNomeIgual(){ return getText(erroCadastrousuario); }
+    public String validarUsuarioCadastradoNomeIgual(){ return getText(validarNomeIgual); }
+    public String validarUsuarioSemNome(){ return getText(validarUsuarioSemNome); }
+    public String validarUsuarioEditarSemNome(){ return getText(validarUsuarioEditarSemNome); }
 
 
 

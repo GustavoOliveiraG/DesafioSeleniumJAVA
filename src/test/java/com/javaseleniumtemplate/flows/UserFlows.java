@@ -1,5 +1,6 @@
 package com.javaseleniumtemplate.flows;
 
+import com.javaseleniumtemplate.pages.Tasks.CreateTasksPage;
 import com.javaseleniumtemplate.pages.Usuario.CreateAccountPage;
 import com.javaseleniumtemplate.pages.LoginPage;
 import com.javaseleniumtemplate.pages.Usuario.MyAccountPage;
@@ -10,6 +11,7 @@ public class UserFlows {
     LoginFlows loginFlows;
     MyAccountPage myAccountPage;
     CreateAccountPage createAccountPage;
+
 
     public UserFlows(){
         loginPage = new LoginPage();
@@ -33,8 +35,8 @@ public class UserFlows {
     public void acessarCadastrodeUsuario(){
         loginFlows.efetuarLogin("administrator", "root");
         myAccountPage.clicarConvidarUsuario();
-
     }
+
 
 
 
