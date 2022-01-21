@@ -75,6 +75,13 @@
             <version>8.0.26</version>
         </dependency>
 
+        <dependency>
+            <groupId>atu.testng.reports.ATUReports</groupId>
+            <artifactId>atu-reports</artifactId>
+            <version>2.1</version>
+            <scope>system</scope>
+            <systemPath>path para seu .jar</systemPath>
+        </dependency>
 
 
 
