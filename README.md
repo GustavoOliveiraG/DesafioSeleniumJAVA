@@ -73,6 +73,8 @@ Testes distribuídos em classes localizadas na  pasta **tests** . Utilizado a ar
 
 *Implementado o DDT via **CSV** e **Excel**. Criando as classes **ReadingCSVUtils.class** e **Excelutils.class** para leitura dos arquivos, que se encontram dentro da pasta **resources**. Na classe **UserTests.class** foi feito a chamada dos testes **cadastrarUsuariosNovosDDTCSV** e **cadastrarUsuariosNovosDDTEXCEL()** para execução dos DDT.*
 
+> *obs.: Implementação da leitura nesse projeto, via EXCEL não é considerado um DDT porque quando lemos um arquivo através de lógica de programação no teste não é considerado Data Driven.*
+
 
 
 -  Os casos de testes precisam ser executados em no mínimo três navegadores. Utilizando o Selenium Grid.
@@ -93,8 +95,7 @@ Testes distribuídos em classes localizadas na  pasta **tests** . Utilizado a ar
 
 1. [*ATUTestRecorder*](https://medium.com/@alanpaulooficial/como-gravar-evid%C3%AAncias-de-automa%C3%A7%C3%A3o-de-testes-em-v%C3%ADdeos-utilizando-o-selenium-webdriver-c12a0dab8452) 
 2. *[Conversor](https://convertio.co/pt/)*
-
-
+3. Adicionado a dependencia *tu.testng.reports.ATUReports*, para importação.
 
 -  O projeto deverá gerar um relatório de testes automaticamente com screenshots ou vídeos embutidos.
 
